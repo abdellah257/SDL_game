@@ -3,11 +3,15 @@
 #include <iostream>
 #include <string>
 
+const int FPS = 60;
+const int DELAY_TIME = 1000.f / FPS;
+
 // our Game object
 Game* g_game = 0;
 
 int main(int argc, char* argv[])
 {
+    Uint32 frameStart, frameTime;
     std::cout << "game init attempt...\n";
     char title[] = "Chapter 3";
     TheGame::Instance()->init(title, 640, 480);
@@ -16,11 +20,18 @@ int main(int argc, char* argv[])
         std::cout << "game init success!\n";
         while (TheGame::Instance()->is_Running())
         {
+            frameStart = SDL_GetTicks();
+
             TheGame::Instance()->event_handler();
             TheGame::Instance()->update();
             TheGame::Instance()->render();
 
-            SDL_Delay(10);
+            frameTime = SDL_GetTicks() - frameStart;
+
+            if (frameTime < DELAY_TIME)
+            {
+                SDL_Delay((int)(DELAY_TIME - frameTime));
+            }
         }
     }
     else

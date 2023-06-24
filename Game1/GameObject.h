@@ -2,6 +2,7 @@
 #define __GAMEOBJECT__
 
 #include <string>
+#include "lib.h"
 
 #pragma once
 
@@ -9,32 +10,29 @@ class ObjectParam
 {
 public:
 	ObjectParam(int x, int y, int width, int height, int frame, int row, std::string id) {
-		m_x = x; m_y = y;
-		m_width = width; m_height = height;
+		m_position = vec2(x, y);
+		m_size = vec2(width, height);
 		m_currentFrame = frame; m_currentRow = row;
 		m_textureID = id;
 	}
 	~ObjectParam() {}
 
-	int getX() const { return m_x; }
-	int getY() const { return m_y; }
-	int getW() const { return m_width; }
-	int getH() const { return m_height; }
+	vec2 getPos() const { return m_position; }
+	vec2 getSize() const { return m_size; }
 
 	std::string getID() const { return m_textureID; }
 
 private:
 
-	int m_x;
-	int m_y;
+	vec2 m_position;
+
+	vec2 m_size;
 
 	std::string m_textureID;
 
 	int m_currentFrame;
 	int m_currentRow;
 
-	int m_width;
-	int m_height;
 };
 
 class GameObject
@@ -64,8 +62,8 @@ public:
 
 protected:
 
-	int m_x, m_y;
-	int m_width, m_height;
+	vec2 m_position;
+	vec2 m_size;
 	int m_currentFrame, m_currentRow;
 
 	std::string m_textureID;

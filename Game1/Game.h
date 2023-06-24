@@ -4,8 +4,16 @@
 
 #include <vector>
 #include <SDL3/SDL.h>
-#include "TextureManager.h"
 #include "GameObject.h"
+#include "States.h"
+#include "GameState.h"
+
+enum game_states
+{
+	MENU = 0,
+	PLAY = 1,
+	GAMEOVER = 2
+};
 
 #pragma once
 class Game
@@ -18,6 +26,7 @@ public:
 	void update();
 	void event_handler();
 	void clean();
+	void quit();
 
 	bool is_Running() const {
 		return m_Running;
@@ -43,13 +52,15 @@ private:
 	static Game* s_pInstance;
 
 	Game();
-
-	std::vector<GameObject*> m_gameObjects;
-
-	bool m_Running;
+	
 	SDL_Window* m_window;
 	SDL_Renderer* m_renderer;
+	GameStateMachine* m_stateMachine;
+	std::vector<GameObject*> m_playObjects;
+	std::vector<GameObject*> m_menuObjects;
 
+	bool m_Running;
+	game_states m_currentState;
 };
 
 typedef Game TheGame;

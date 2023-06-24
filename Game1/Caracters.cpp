@@ -2,6 +2,7 @@
 #include "TextureManager.h"
 #include "GameObject.h"
 #include "Game.h"
+#include "EventHandler.h"
 #include <iostream>
 
 
@@ -26,7 +27,29 @@ void Player::update()
         m_currentRow = 0;
         m_currentFrame = m;
     }
-    m_x += 1;
+    
+    if (TheEventHandler::Instance()->getMouseButtonState(LEFT)) {
+        m_position.setX(m_position.getX() - 10);
+    }
+    if (TheEventHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT))
+    {
+        m_position.setX(m_position.getX() + 2);
+    }
+
+    if (TheEventHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT))
+    {
+        m_position.setX(m_position.getX() - 2);
+    }
+
+    if (TheEventHandler::Instance()->isKeyDown(SDL_SCANCODE_UP))
+    {
+        m_position.setY(m_position.getY() - 2);
+    }
+
+    if (TheEventHandler::Instance()->isKeyDown(SDL_SCANCODE_DOWN))
+    {
+        m_position.setY(m_position.getY() + 2);
+    }
 }
 
 void Player::clean()
@@ -40,8 +63,8 @@ Enemy::Enemy(const ObjectParam* param) : SDLGameObject(param) {
 
 void Enemy::draw()
 {
-    TextureManager::Instance()->drawFrame(m_textureID, m_x, m_y,
-        m_width, m_height, m_currentRow, m_currentFrame,
+    TextureManager::Instance()->drawFrame(m_textureID, m_position,
+        m_size, m_currentRow, m_currentFrame,
         TheGame::Instance()->getRenderer(), SDL_FLIP_HORIZONTAL);
 }
 
@@ -57,7 +80,7 @@ void Enemy::update()
         m_currentRow = 0;
         m_currentFrame = m;
     }
-    m_x -= 1;
+    m_position.setX(m_position.getX()-1);
     
 }
 void Enemy::clean()

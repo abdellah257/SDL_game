@@ -9,8 +9,8 @@ public:
 	vec2() : x(0.), y(0.) {}
 	vec2(double a, double b) : x(a), y(b) {}
 
-	double getX() { return x; }
-	double getY() { return y; }
+	double getX() const { return x; }
+	double getY() const { return y; }
 
 	void setX(double a) { x = a; }
 	void setY(double b) { y = b; }

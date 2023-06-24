@@ -1,21 +1,11 @@
 ﻿  Caracters.cpp
+  EventHandler.cpp
   Game.cpp
   main.cpp
+C:\Users\Test\Desktop\SDL_game\Game1\main.cpp(7,31): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Test\Desktop\SDL_game\Game1\main.cpp(23,38): warning C4244: '=': conversion from 'Uint64' to 'Uint32', possible loss of data
+C:\Users\Test\Desktop\SDL_game\Game1\main.cpp(29,40): warning C4244: '=': conversion from 'Uint64' to 'Uint32', possible loss of data
   SDLGameObject.cpp
-  TextureManager.cpp
-C:\Users\Test\Desktop\Home\SDL_game\Game1\TextureManager.cpp(40,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Test\Desktop\Home\SDL_game\Game1\TextureManager.cpp(40,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Test\Desktop\Home\SDL_game\Game1\TextureManager.cpp(41,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Test\Desktop\Home\SDL_game\Game1\TextureManager.cpp(41,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Test\Desktop\Home\SDL_game\Game1\TextureManager.cpp(42,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Test\Desktop\Home\SDL_game\Game1\TextureManager.cpp(43,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Test\Desktop\Home\SDL_game\Game1\TextureManager.cpp(56,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Test\Desktop\Home\SDL_game\Game1\TextureManager.cpp(56,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Test\Desktop\Home\SDL_game\Game1\TextureManager.cpp(57,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Test\Desktop\Home\SDL_game\Game1\TextureManager.cpp(57,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Test\Desktop\Home\SDL_game\Game1\TextureManager.cpp(58,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Test\Desktop\Home\SDL_game\Game1\TextureManager.cpp(59,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  vec2D.cpp
-C:\Users\Test\Desktop\Home\SDL_game\Game1\vec2D.cpp(41,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  States.cpp
   Generating Code...
-  Game1.vcxproj -> C:\Users\Test\Desktop\Home\SDL_game\Game1\x64\Debug\Game1.exe
+  Game1.vcxproj -> C:\Users\Test\Desktop\SDL_game\Game1\x64\Debug\Game1.exe

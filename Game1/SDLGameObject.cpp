@@ -7,10 +7,8 @@
 
 SDLGameObject::SDLGameObject(const ObjectParam* param): GameObject(param) {
 
-	m_x = param->getX();
-	m_y = param->getY();
-	m_width = param->getW();
-	m_height = param->getH();
+	m_position = param->getPos();
+	m_size = param->getSize();
 	m_textureID = param->getID();
 
 	m_currentRow = 0;
@@ -19,8 +17,8 @@ SDLGameObject::SDLGameObject(const ObjectParam* param): GameObject(param) {
 
 void SDLGameObject::draw()
 {
-	TextureManager::Instance()->drawFrame(m_textureID, m_x, m_y,
-		m_width, m_height, m_currentRow, m_currentFrame,
+	TextureManager::Instance()->drawFrame(m_textureID, m_position,
+		m_size, m_currentRow, m_currentFrame,
 		TheGame::Instance()->getRenderer(), SDL_FLIP_NONE);
 }
 

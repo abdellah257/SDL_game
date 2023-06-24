@@ -4,14 +4,15 @@
 #include <SDL3/SDL.h>
 #include <string>
 #include <map>
+#include "lib.h"
 
 #pragma once
 class TextureManager
 {
 public:
 	bool load(std::string fileName, std::string id, SDL_Renderer* pRenderer);
-	void draw(std::string id, int x, int y, int width, int height, SDL_Renderer* pRenderer, SDL_RendererFlip flip);
-	void drawFrame(std::string id, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* pRenderer, SDL_RendererFlip flip);
+	void draw(std::string id, vec2 pos, vec2 size, SDL_Renderer* pRenderer, SDL_RendererFlip flip);
+	void drawFrame(std::string id, vec2 pos, vec2 size, int currentRow, int currentFrame, SDL_Renderer* pRenderer, SDL_RendererFlip flip);
 	
 	static TextureManager* Instance()
 	{

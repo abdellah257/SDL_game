@@ -1,1 +1,2 @@
 C:\Users\Test\Desktop\Home\SDL_game\Game1\x64\Debug\Game1.exe
+C:\Users\Test\Desktop\SDL_game\Game1\x64\Debug\Game1.exe
