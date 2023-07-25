@@ -1,11 +1,10 @@
-﻿  Caracters.cpp
-  EventHandler.cpp
-  Game.cpp
-  main.cpp
-C:\Users\Test\Desktop\SDL_game\Game1\main.cpp(7,31): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Test\Desktop\SDL_game\Game1\main.cpp(23,38): warning C4244: '=': conversion from 'Uint64' to 'Uint32', possible loss of data
-C:\Users\Test\Desktop\SDL_game\Game1\main.cpp(29,40): warning C4244: '=': conversion from 'Uint64' to 'Uint32', possible loss of data
-  SDLGameObject.cpp
-  States.cpp
-  Generating Code...
+﻿  States.cpp
+C:\Users\Test\Desktop\SDL_game\Game1\States.cpp(211,12): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Test\Desktop\SDL_game\Game1\States.cpp(212,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Test\Desktop\SDL_game\Game1\States.cpp(213,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Test\Desktop\SDL_game\Game1\States.cpp(214,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Test\Desktop\SDL_game\Game1\States.cpp(216,12): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Test\Desktop\SDL_game\Game1\States.cpp(217,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Test\Desktop\SDL_game\Game1\States.cpp(218,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Test\Desktop\SDL_game\Game1\States.cpp(219,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   Game1.vcxproj -> C:\Users\Test\Desktop\SDL_game\Game1\x64\Debug\Game1.exe

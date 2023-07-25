@@ -151,6 +151,7 @@
     <ClCompile Include="SDLGameObject.cpp" />
     <ClCompile Include="States.cpp" />
     <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="vec2.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +164,7 @@
     <ClInclude Include="States.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="lib.h" />
+    <ClInclude Include="tinyxml2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

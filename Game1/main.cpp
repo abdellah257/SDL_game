@@ -13,8 +13,11 @@ int main(int argc, char* argv[])
 {
     Uint32 frameStart, frameTime;
     std::cout << "game init attempt...\n";
-    char title[] = "Chapter 3";
-    TheGame::Instance()->init(title, 640, 480);
+
+    char title[] = "2D Game";
+
+    TheGame::Instance()->init(title, 600, 600);
+
     if (TheGame::Instance()->is_Running())
     {
         std::cout << "game init success!\n";

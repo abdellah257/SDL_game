@@ -12,8 +12,13 @@ enum button_state
 
 class MenuButton : public SDLGameObject {
 
+	void (*m_callback)();
+	bool m_Released;
+
 public:
-	MenuButton(const ObjectParam* param);
+
+	MenuButton(const ObjectParam* param, void (*callback)());
+
 	void draw();
 	void update();
 	void clean();

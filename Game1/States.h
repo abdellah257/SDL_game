@@ -8,8 +8,7 @@ class MenuState : public GameState
 {
 public:
 
-	MenuState(std::vector<GameObject*> m_menuObjects) {
-		this->m_menuObjects = m_menuObjects;
+	MenuState() {
 	};
 
 	virtual void update();
@@ -24,15 +23,16 @@ private:
 
 	static const std::string s_menuID;
 	std::vector<GameObject*> m_menuObjects;
+
+	static void s_menuToPlay();
+	static void s_exitFromMenu();
 };
 
-
-class PlayState : public GameState
+class PauseState : public GameState
 {
 public:
 
-	PlayState(std::vector<GameObject*> m_menuObjects) {
-		this->m_gameObjects = m_menuObjects;
+	PauseState() {
 	};
 
 	virtual void update();
@@ -40,6 +40,33 @@ public:
 
 	virtual bool onEnter();
 	virtual bool onExit();
+
+	virtual std::string getStateID() const { return s_pauseID; }
+
+private:
+
+	static const std::string s_pauseID;
+	std::vector<GameObject*> m_menuObjects;
+
+	static void s_pauseToMenu();
+	static void s_pauseToPlay();
+};
+
+
+class PlayState : public GameState
+{
+public:
+
+	PlayState() {
+	};
+
+	virtual void update();
+	virtual void render();
+
+	virtual bool onEnter();
+	virtual bool onExit();
+
+	bool checkCollision(SDLGameObject* g1, SDLGameObject* g2);
 
 	virtual std::string getStateID() const { return s_playID; }
 
@@ -50,6 +77,31 @@ private:
 	
 };
 
+class OverState : public GameState
+{
+public:
+
+	OverState() {
+	};
+
+	virtual void update();
+	virtual void render();
+
+	virtual bool onEnter();
+	virtual bool onExit();
+
+	virtual std::string getStateID() const { return s_overID; }
+
+private:
+
+	static const std::string s_overID;
+	std::vector<GameObject*> m_gameObjects;
+
+	static void s_overToMenu();
+	static void s_overToPlay();
+
+};
+
 class GameStateMachine
 {
 public:
@@ -57,6 +109,7 @@ public:
 	void pushState(GameState* pState);
 	void changeState(GameState* pState);
 	void popState();
+
 	void update();
 	void render();
 
