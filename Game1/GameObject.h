@@ -9,10 +9,10 @@
 class ObjectParam
 {
 public:
-	ObjectParam(int x, int y, int width, int height, int frame, int row, std::string id) {
+	ObjectParam(int x, int y, int width, int height, int frame, int row, int offset, std::string id) {
 		m_position = vec2(x, y);
 		m_size = vec2(width, height);
-		m_currentFrame = frame; m_currentRow = row;
+		m_currentFrame = frame; m_currentRow = row; m_offset = offset;
 		m_textureID = id;
 	}
 	~ObjectParam() {}
@@ -22,6 +22,10 @@ public:
 
 	std::string getID() const { return m_textureID; }
 
+	int m_currentFrame;
+	int m_currentRow;
+	int m_offset;
+
 private:
 
 	vec2 m_position;
@@ -29,10 +33,6 @@ private:
 	vec2 m_size;
 
 	std::string m_textureID;
-
-	int m_currentFrame;
-	int m_currentRow;
-
 };
 
 class GameObject
@@ -60,11 +60,19 @@ public:
 	virtual void draw();
 	virtual void clean();
 
+	vec2 getPosition() {
+		return m_position;
+	}
+
+	vec2 getSize() {
+		return m_size;
+	}
+
 protected:
 
 	vec2 m_position;
 	vec2 m_size;
-	int m_currentFrame, m_currentRow;
+	int m_currentFrame, m_currentRow, m_offset;
 
 	std::string m_textureID;
 

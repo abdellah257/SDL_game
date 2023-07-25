@@ -12,7 +12,8 @@ enum game_states
 {
 	MENU = 0,
 	PLAY = 1,
-	GAMEOVER = 2
+	PAUSE = 2,
+	GAMEOVER = 3
 };
 
 #pragma once
@@ -46,6 +47,8 @@ public:
 	SDL_Renderer* getRenderer() const { return m_renderer; }
 	SDL_Window* getWindow() const { return m_window; }
 
+	GameStateMachine* getStateMachine() { return m_stateMachine; }
+
 
 private:
 
@@ -56,8 +59,6 @@ private:
 	SDL_Window* m_window;
 	SDL_Renderer* m_renderer;
 	GameStateMachine* m_stateMachine;
-	std::vector<GameObject*> m_playObjects;
-	std::vector<GameObject*> m_menuObjects;
 
 	bool m_Running;
 	game_states m_currentState;

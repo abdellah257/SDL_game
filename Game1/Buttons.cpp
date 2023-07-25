@@ -3,9 +3,11 @@
 #include "GameObject.h"
 
 
-MenuButton::MenuButton(const ObjectParam* params) : SDLGameObject(params)
+MenuButton::MenuButton(const ObjectParam* params, void (*callback)()): SDLGameObject(params)
 {
-    m_currentRow = MOUSE_OUT; // start at frame 0
+    m_currentFrame = MOUSE_OUT; // start at frame 0
+    m_callback = callback;
+    m_Released = false;
 }
 
 void MenuButton::draw()
@@ -23,16 +25,34 @@ void MenuButton::update()
         && mousePos->getY() < (m_position.getY() + m_size.getY())
         && mousePos->getY() > m_position.getY())
     {
-        m_currentRow = MOUSE_OVER;
+        m_currentFrame = MOUSE_OVER;
 
-        if (TheEventHandler::Instance()->getMouseButtonState(LEFT))
+        if (TheEventHandler::Instance()->getMouseButtonState(LEFT) && m_Released)
         {
-            m_currentRow = CLICKED;
+            m_currentFrame = CLICKED;
+
+            m_callback();
+
+            m_Released = false;
+        }
+        else {
+            if (TheEventHandler::Instance()->getMouseButtonState(LEFT) && !m_Released) {
+                m_Released = false;
+            }
+            else {
+                m_Released = true;
+            }
         }
     }
     else
     {
-        m_currentRow = MOUSE_OUT;
+        m_currentFrame = MOUSE_OUT;
+        if (TheEventHandler::Instance()->getMouseButtonState(LEFT) && !m_Released) {
+            m_Released = false;
+        }
+        else {
+            m_Released = true;
+        }
     }
 }
 

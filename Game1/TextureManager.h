@@ -12,7 +12,7 @@ class TextureManager
 public:
 	bool load(std::string fileName, std::string id, SDL_Renderer* pRenderer);
 	void draw(std::string id, vec2 pos, vec2 size, SDL_Renderer* pRenderer, SDL_RendererFlip flip);
-	void drawFrame(std::string id, vec2 pos, vec2 size, int currentRow, int currentFrame, SDL_Renderer* pRenderer, SDL_RendererFlip flip);
+	void drawFrame(std::string id, vec2 pos, vec2 size, int currentRow, int currentFrame, int offset, SDL_Renderer* pRenderer, SDL_RendererFlip flip);
 	
 	static TextureManager* Instance()
 	{

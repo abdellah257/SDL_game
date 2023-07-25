@@ -28,9 +28,9 @@ void Player::update()
         m_currentFrame = m;
     }
     
-    if (TheEventHandler::Instance()->getMouseButtonState(LEFT)) {
+    /*if (TheEventHandler::Instance()->getMouseButtonState(LEFT)) {
         m_position.setX(m_position.getX() - 10);
-    }
+    }*/
     if (TheEventHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT))
     {
         m_position.setX(m_position.getX() + 2);
@@ -64,7 +64,7 @@ Enemy::Enemy(const ObjectParam* param) : SDLGameObject(param) {
 void Enemy::draw()
 {
     TextureManager::Instance()->drawFrame(m_textureID, m_position,
-        m_size, m_currentRow, m_currentFrame,
+        m_size, m_currentRow, m_currentFrame, m_offset,
         TheGame::Instance()->getRenderer(), SDL_FLIP_HORIZONTAL);
 }
 

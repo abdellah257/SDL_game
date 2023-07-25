@@ -47,12 +47,12 @@ void TextureManager::draw(std::string id, vec2 pos, vec2 size, SDL_Renderer* pRe
 
 }
 
-void TextureManager::drawFrame(std::string id, vec2 pos, vec2 size, int currentRow, int currentFrame, SDL_Renderer* pRenderer, SDL_RendererFlip flip)
+void TextureManager::drawFrame(std::string id, vec2 pos, vec2 size, int currentRow, int currentFrame, int offset, SDL_Renderer* pRenderer, SDL_RendererFlip flip)
 {
     SDL_Rect srcRect;
     SDL_FRect destRect;
     srcRect.x = size.getX() * currentFrame;
-    srcRect.y = size.getY() * currentRow;
+    srcRect.y = (offset + size.getY()) * currentRow;
     srcRect.w = destRect.w = size.getX();
     srcRect.h = destRect.h = size.getY();
     destRect.x = pos.getX();
